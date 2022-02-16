@@ -1,3 +1,8 @@
+__author__ = "Florian TURMEL"
+__copyright__ = "Copyright (C) 2022 Florian TURMEL"
+__contact__ = "turmel.florian@laposte.net"
+__version__ = "1.2"
+
 from pyvis.network import Network
 import pandas as pd
 import numpy
