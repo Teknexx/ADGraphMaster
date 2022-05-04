@@ -8,9 +8,9 @@ AD Graph Master is an Active Directory mapping tool. It works via the [Get-ADAud
 Use the package manager  to install foobar.
 
 ```
-git clone https://github.com/Teknexx/ADGraphMaster.git
-cd ADGraphMaster
-pip install -r requirements.txt
+$ git clone https://github.com/Teknexx/ADGraphMaster.git
+$ cd ADGraphMaster
+$ pip install -r requirements.txt
 ```
 
 ## Usage
