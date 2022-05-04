@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 __author__ = "Florian TURMEL"
 __copyright__ = "Copyright (C) 2022 Florian TURMEL"
 __contact__ = "turmel.florian@laposte.net"
