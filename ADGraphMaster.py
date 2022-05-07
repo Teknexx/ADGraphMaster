@@ -37,7 +37,10 @@ def exportToGraph(filename, filetype):
 
 
 def listDisabled(file):
-
+    """
+    Modify the global variable globalListDisabled with Disabled Objects
+    :param file: (str) name of the file to detect Disabled Objects
+    """
     data = pd.read_csv(file, sep='|', encoding = 'latin1')
     data = data.replace(numpy.nan, '')
     cn = data['cn']
@@ -275,6 +278,5 @@ if __name__ == "__main__":
 
         elif sys.argv[arg] == "-h":
             HELP()
-
 
     cartoCreation(usr, cpt, HTMLpath)
