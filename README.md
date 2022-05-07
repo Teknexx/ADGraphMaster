@@ -20,7 +20,7 @@ $ pip install -r requirements.txt
   /_\ |   \ / __|_ _ __ _ _ __| |_ |  \/  |__ _ __| |_ ___ _ _
  / _ \| |) | (_ | '_/ _` | '_ \ ' \| |\/| / _` (_-<  _/ -_) '_|
 /_/ \_\___/ \___|_| \__,_| .__/_||_|_|  |_\__,_/__/\__\___|_|
-                         |_|                                     v1.3
+                         |_|                                     v1.4
 Arguments:
   -u : users file (from AD Audit Master)
   -c : computers file (from AD Audit Master)
@@ -29,7 +29,7 @@ Arguments:
   -f : find a particular CN
 
 examples :
-  python3 ADGrapMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -s
+  python3 ADGrapMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv
   python3 ADGrapMaster.py -u DC=domain-Users.csv -b -n HTMLUsers
   python3 ADGrapMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'
 ```
