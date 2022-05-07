@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
+# -*- coding: latin1 -*-
 
 __author__ = "Florian TURMEL"
 __contact__ = "turmel.florian@laposte.net"
-__version__ = "1.3"
+__version__ = "1.4"
 
 from pyvis.network import Network
 import pandas as pd
@@ -19,7 +19,7 @@ def exportToGraph(filename, filetype):
     :param filetype: (str) type of the file to tranforme (Users or Computers)
     """
     nbcase = -1
-    file = open(filename, "r", encoding="utf-8")
+    file = open(filename, "r", encoding = 'latin1')
     filesplited = ""
     for l in file.readlines():
         lcut = l.split('|')
@@ -38,7 +38,7 @@ def exportToGraph(filename, filetype):
 
 def listDisabled(file):
 
-    data = pd.read_csv(file, sep='|')
+    data = pd.read_csv(file, sep='|', encoding = 'latin1')
     data = data.replace(numpy.nan, '')
     cn = data['cn']
     useracc = data['userAccountControl']
@@ -62,7 +62,7 @@ def readandwritelines(filestr, type):
             ans += str(e) + ","
         ans += l[-1] + "\n"
 
-    filewrite = open(str(type)+".csv", "w", encoding="utf-8")
+    filewrite = open(str(type)+".csv", "w", encoding = 'latin1')
     filewrite.write(ans)
     filewrite.close()
 
@@ -131,7 +131,7 @@ def dataImplement(net, file):
     :param net: (Network) network to use
     :param file: (str) name of the csv file
     """
-    data = pd.read_csv(file)
+    data = pd.read_csv(file, encoding = 'latin1')
     data = data.replace(numpy.nan, '')
     os.remove(file)
 
