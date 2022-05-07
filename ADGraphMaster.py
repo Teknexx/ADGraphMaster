@@ -133,7 +133,6 @@ def dataImplement(net, file):
     """
     data = pd.read_csv(file, encoding = 'latin1')
     data = data.replace(numpy.nan, '')
-    os.remove(file)
 
     csv1 = data['csv1']
     csv2 = data['csv2']
@@ -200,7 +199,7 @@ def HELP():
     print("Arguments:\n  -u : users file (from AD Audit Master)\n  -c : computers file (from AD Audit Master)\n  -b : "
           "enable physics buttons\n  -n : name or path of the output file (default : ADGraphMasterCarto.html)\n  -f : "
           "find a particular CN\n")
-    print("examples :\n  python3 ADCarto.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -s")
+    print("examples :\n  python3 ADCarto.py -c DC=domain-Computers.csv -u DC=domain-Users.csv")
     print("  python3 ADCarto.py -u DC=domain-Users.csv -b -n HTMLUsers")
     print("  python3 ADCarto.py -u DC=domain-Users.csv -f 'Jean MICHEL'\n")
     exit()
@@ -215,25 +214,39 @@ def cartoCreation(usr, cpt, HTMLpath):
     """
     net = Network(height='900px', width='100%', bgcolor='#222222', font_color='white')
     net.barnes_hut()
-
-    if usr:
-        dataImplement(net, ".\\Users.csv")
-    if cpt:
-        dataImplement(net, ".\\Computers.csv")
+    net_usr = Network(height='900px', width='100%', bgcolor='#222222', font_color='white')
+    net_usr.barnes_hut()
+    net_cpt = Network(height='900px', width='100%', bgcolor='#222222', font_color='white')
+    net_cpt.barnes_hut()
 
     if "-b" in sys.argv[1:]:
         net.show_buttons(filter_=['physics'])
+        net_usr.show_buttons(filter_=['physics'])
+        net_cpt.show_buttons(filter_=['physics'])
 
     if "-f" in sys.argv[1:]:
-
-        try: rechercheCN(net, sys.argv[sys.argv.index("-f")+1], "white")
+        try:
+            rechercheCN(net, sys.argv[sys.argv.index("-f")+1], "white")
+            rechercheCN(net_usr, sys.argv[sys.argv.index("-f") + 1], "white")
+            rechercheCN(net_cpt, sys.argv[sys.argv.index("-f") + 1], "white")
         except IndexError:
             HELP()
 
     if not os.path.exists(os.path.dirname(HTMLpath)):
         os.makedirs(os.path.dirname(HTMLpath))
 
-    net.show(os.path.splitext(HTMLpath)[0] + '.html')
+    if usr:
+        dataImplement(net_usr, ".\\Users.csv")
+        dataImplement(net, ".\\Users.csv")
+        os.remove(".\\Users.csv")
+        net_usr.show(os.path.splitext(HTMLpath)[0] + '_Users.html')
+    if cpt:
+        dataImplement(net_cpt, ".\\Computers.csv")
+        dataImplement(net, ".\\Computers.csv")
+        os.remove(".\\Computers.csv")
+        net_cpt.show(os.path.splitext(HTMLpath)[0] + '_Computers.html')
+    if usr and cpt:
+        net.show(os.path.splitext(HTMLpath)[0] + '_UsersAndComputers.html')
 
 
 if __name__ == "__main__":
@@ -262,5 +275,6 @@ if __name__ == "__main__":
 
         elif sys.argv[arg] == "-h":
             HELP()
+
 
     cartoCreation(usr, cpt, HTMLpath)
