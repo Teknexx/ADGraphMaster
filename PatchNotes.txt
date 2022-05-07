@@ -10,6 +10,5 @@ v1.2 : 1. Changes in the -n argument, users can now use a path
 v1.3 : 1. Added a different color for Disabled Users
        2. Added a pip requirements file
 
-v1.4 : 
-       1. Modified the csv eading encoding type to latin1
+v1.4 : 1. Modified the csv reading encoding type to latin1
        2. Now create 3 graph when using -c and -u arguments
