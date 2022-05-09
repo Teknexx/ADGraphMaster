@@ -29,8 +29,8 @@ Arguments:
   -f : find a particular CN
 
 examples :
-  python3 ADGrapMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv
-  python3 ADGrapMaster.py -u DC=domain-Users.csv -b -n HTMLUsers
-  python3 ADGrapMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'
+  python3 ADGraphMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -n Carto/CartoExample.html
+  ./ADGraphMaster.py -u DC=domain-Users.csv -b -n HTMLUsers
+  py ADGraphMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'
 ```
 
