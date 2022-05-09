@@ -12,3 +12,4 @@ v1.3 : 1. Added a different color for Disabled Users
 
 v1.4 : 1. Modified the csv reading encoding type to latin1
        2. Now create 3 graph when using -c and -u arguments
+       3. Modify the code to work on all OS
