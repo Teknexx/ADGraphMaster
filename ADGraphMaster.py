@@ -206,8 +206,8 @@ def HELP():
           "enable physics buttons\n  -n : name or path of the output file (default : ADGraphMasterCarto.html)\n  -f : "
           "find a particular CN\n")
     print("examples :\n  python3 ADGraphMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -n Carto/CartoExample.html")
-    print("  python3 ADGraphMaster.py -u DC=domain-Users.csv -b -n HTMLUsers")
-    print("  python3 ADGraphMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'\n")
+    print("  ./ADGraphMaster.py -u DC=domain-Users.csv -b -n HTMLUsers")
+    print("  py ADGraphMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'\n")
     exit()
 
 
