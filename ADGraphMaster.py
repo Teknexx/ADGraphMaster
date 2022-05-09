@@ -19,12 +19,12 @@ def exportToGraph(filename, filetype):
     :param filetype: (str) type of the file to tranforme (Users or Computers)
     """
     nbcase = -1
-    file = open(filename, "r", encoding = 'latin1')
+    file = open(filename, "r", encoding='latin1')
     filesplited = ""
-    for l in file.readlines():
-        lcut = l.split('|')
+    for line in file.readlines():
+        lcut = line.split('|')
         if nbcase == -1:
-            for i in range(len(l)):
+            for i in range(len(line)):
                 if lcut[i] == "distinguishedName":
                     nbcase = i
                     break
@@ -41,7 +41,7 @@ def listDisabled(file):
     Modify the global variable globalListDisabled with Disabled Objects
     :param file: (str) name of the file to detect Disabled Objects
     """
-    data = pd.read_csv(file, sep='|', encoding = 'latin1')
+    data = pd.read_csv(file, sep='|', encoding='latin1')
     data = data.replace(numpy.nan, '')
     cn = data['cn']
     useracc = data['userAccountControl']
@@ -58,14 +58,14 @@ def readandwritelines(filestr, type):
     """
     ans = "csv1,csv2,csv3,csv4,csv5,csv6,csv7,csv8,csv9,csv10,csv11,csv12,csv13,csv14\n"
     file = filestr.split('\n')
-    for l in file:
-        l = l.strip().split(',')
-        l.reverse()
-        for e in l[:-1]:
+    for line in file:
+        line = line.strip().split(',')
+        line.reverse()
+        for e in line[:-1]:
             ans += str(e) + ","
-        ans += l[-1] + "\n"
+        ans += line[-1] + "\n"
 
-    filewrite = open(str(type)+".csv", "w", encoding = 'latin1')
+    filewrite = open(str(type)+".csv", "w", encoding='latin1')
     filewrite.write(ans)
     filewrite.close()
 
@@ -81,7 +81,7 @@ def colorNode(net, label, id, filetype):
     N_DC = '#F04D4D'
     N_OU = '#70DB70'
 
-    if filetype == ".\\Users.csv":
+    if filetype == os.path.join(".", "Users.csv"):
         N_CN_Enabled = '#80B2FF'
         N_CN_Disabled = '#464F71'
     else:
@@ -114,7 +114,7 @@ def colorEdge(net, label, e1, e2, filetype):
     E_DC = '#A00000'
     E_OU = '#70DB70'
 
-    if filetype == ".\\Users.csv":
+    if filetype == os.path.join(".","Users.csv"):
         E_CN = '#2839A0'
     else:
         E_CN = '#FD9F91'
@@ -198,13 +198,13 @@ def HELP():
     print("  /_\ |   \ / __|_ _ __ _ _ __| |_ |  \/  |__ _ __| |_ ___ _ _ ")
     print(" / _ \| |) | (_ | '_/ _` | '_ \ ' \| |\/| / _` (_-<  _/ -_) '_|")
     print("/_/ \_\___/ \___|_| \__,_| .__/_||_|_|  |_\__,_/__/\__\___|_|  ")
-    print("                         |_|                                     v1.2")
+    print("                         |_|                                     v1.4")
     print("Arguments:\n  -u : users file (from AD Audit Master)\n  -c : computers file (from AD Audit Master)\n  -b : "
           "enable physics buttons\n  -n : name or path of the output file (default : ADGraphMasterCarto.html)\n  -f : "
           "find a particular CN\n")
-    print("examples :\n  python3 ADCarto.py -c DC=domain-Computers.csv -u DC=domain-Users.csv")
-    print("  python3 ADCarto.py -u DC=domain-Users.csv -b -n HTMLUsers")
-    print("  python3 ADCarto.py -u DC=domain-Users.csv -f 'Jean MICHEL'\n")
+    print("examples :\n  python3 ADGraphMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -n Carto/CartoExample.html")
+    print("  python3 ADGraphMaster.py -u DC=domain-Users.csv -b -n HTMLUsers")
+    print("  python3 ADGraphMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'\n")
     exit()
 
 
@@ -239,17 +239,23 @@ def cartoCreation(usr, cpt, HTMLpath):
         os.makedirs(os.path.dirname(HTMLpath))
 
     if usr:
-        dataImplement(net_usr, ".\\Users.csv")
-        dataImplement(net, ".\\Users.csv")
-        os.remove(".\\Users.csv")
-        net_usr.show(os.path.splitext(HTMLpath)[0] + '_Users.html')
+        dataImplement(net_usr, os.path.join(".","Users.csv"))
+        dataImplement(net, os.path.join(".","Users.csv"))
+        os.remove(os.path.join(".","Users.csv"))
+        fileUsers = os.path.splitext(HTMLpath)[0] + '_U.html'
+        net_usr.show(fileUsers)
+        print(fileUsers + " created")
     if cpt:
-        dataImplement(net_cpt, ".\\Computers.csv")
-        dataImplement(net, ".\\Computers.csv")
-        os.remove(".\\Computers.csv")
-        net_cpt.show(os.path.splitext(HTMLpath)[0] + '_Computers.html')
+        dataImplement(net_cpt, os.path.join(".","Computers.csv"))
+        dataImplement(net, os.path.join(".","Computers.csv"))
+        os.remove(os.path.join(".","Computers.csv"))
+        fileComputers = os.path.splitext(HTMLpath)[0] + '_C.html'
+        net_cpt.show(fileComputers)
+        print(fileComputers + " created")
     if usr and cpt:
-        net.show(os.path.splitext(HTMLpath)[0] + '_UsersAndComputers.html')
+        fileCombined = os.path.splitext(HTMLpath)[0] + '_Full.html'
+        net.show(fileCombined)
+        print(fileCombined + " created")
 
 
 if __name__ == "__main__":
@@ -258,7 +264,7 @@ if __name__ == "__main__":
         HELP()
 
     usr = cpt = False
-    HTMLpath = ".\ADGraphMasterCarto.html"
+    HTMLpath = os.path.join(".","ADGraphMasterCarto.html")
     globalListDisabled = {}
     for arg in range(1,len(sys.argv)):
         if sys.argv[arg] == "-u":
@@ -272,8 +278,8 @@ if __name__ == "__main__":
         elif sys.argv[arg] == "-n":
             try:
                 HTMLpath = str(sys.argv[arg+1])
-                if HTMLpath[0:1] != ".\\" :
-                    HTMLpath = ".\\" + HTMLpath
+                if HTMLpath[0:1] != os.path.join(".",HTMLpath) :
+                    HTMLpath = os.path.join(".",HTMLpath)
             except: HELP()
 
         elif sys.argv[arg] == "-h":
