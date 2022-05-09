@@ -89,9 +89,9 @@ def colorNode(net, label, id, filetype):
         N_CN_Disabled = '#9B5233'
 
     if "DC=" in label:
-        COLOR=N_DC
+        COLOR = N_DC
     elif "OU=" in label:
-        COLOR=N_OU
+        COLOR = N_OU
     elif label in globalListDisabled:
         if "Disabled" in globalListDisabled[label]:
             COLOR = N_CN_Disabled
@@ -99,7 +99,8 @@ def colorNode(net, label, id, filetype):
             COLOR = N_CN_Enabled
     else:
         COLOR = N_CN_Enabled
-    net.add_node(id, size=80, title='<p style="font-weight: bold;">'+label+'<p>'+id, color=COLOR, label=label)
+    net.add_node(id, size=80, title='<p style="font-weight: bold;">' +
+                 label+'<p>'+id, color=COLOR, label=label)
 
 
 def colorEdge(net, label, e1, e2, filetype):
@@ -114,7 +115,7 @@ def colorEdge(net, label, e1, e2, filetype):
     E_DC = '#A00000'
     E_OU = '#70DB70'
 
-    if filetype == os.path.join(".","Users.csv"):
+    if filetype == os.path.join(".", "Users.csv"):
         E_CN = '#2839A0'
     else:
         E_CN = '#FD9F91'
@@ -134,7 +135,7 @@ def dataImplement(net, file):
     :param net: (Network) network to use
     :param file: (str) name of the csv file
     """
-    data = pd.read_csv(file, encoding = 'latin1')
+    data = pd.read_csv(file, encoding='latin1')
     data = data.replace(numpy.nan, '')
 
     csv1 = data['csv1']
@@ -152,7 +153,8 @@ def dataImplement(net, file):
     csv13 = data['csv13']
     csv14 = data['csv14']
 
-    edge_data = zip(csv1, csv2, csv3, csv4, csv5, csv6, csv7, csv8, csv9, csv10, csv11, csv12, csv13, csv14)
+    edge_data = zip(csv1, csv2, csv3, csv4, csv5, csv6, csv7,
+                    csv8, csv9, csv10, csv11, csv12, csv13, csv14)
     listBranches = ['']
     for e in edge_data:
         titleFromOrigin = str(e[0])
@@ -167,7 +169,8 @@ def dataImplement(net, file):
             if titleFromOrigin not in listBranches:
                 listBranches.append(titleFromOrigin)
                 colorNode(net, e[i], titleFromOrigin, file)
-                colorEdge(net, e[i], titleFromOrigin, titleFromOriginSave, file)
+                colorEdge(net, e[i], titleFromOrigin,
+                          titleFromOriginSave, file)
 
             titleFromOriginSave = titleFromOrigin
 
@@ -183,7 +186,7 @@ def rechercheCN(net, cn, color):
     if cn[0:3] != "CN=":
         cn = "CN=" + cn
     for node in listnodes:
-        if cn in node :
+        if cn in node:
             net.get_node(node)['color'] = color
             break
     else:
@@ -215,11 +218,14 @@ def cartoCreation(usr, cpt, HTMLpath):
     :param cpt: (boolean) implement a computers file
     :param HTMLpath: (str) path or name of the HTML cartography file
     """
-    net = Network(height='900px', width='100%', bgcolor='#222222', font_color='white')
+    net = Network(height='900px', width='100%',
+                  bgcolor='#222222', font_color='white')
     net.barnes_hut()
-    net_usr = Network(height='900px', width='100%', bgcolor='#222222', font_color='white')
+    net_usr = Network(height='900px', width='100%',
+                      bgcolor='#222222', font_color='white')
     net_usr.barnes_hut()
-    net_cpt = Network(height='900px', width='100%', bgcolor='#222222', font_color='white')
+    net_cpt = Network(height='900px', width='100%',
+                      bgcolor='#222222', font_color='white')
     net_cpt.barnes_hut()
 
     if "-b" in sys.argv[1:]:
@@ -239,16 +245,16 @@ def cartoCreation(usr, cpt, HTMLpath):
         os.makedirs(os.path.dirname(HTMLpath))
 
     if usr:
-        dataImplement(net_usr, os.path.join(".","Users.csv"))
-        dataImplement(net, os.path.join(".","Users.csv"))
-        os.remove(os.path.join(".","Users.csv"))
+        dataImplement(net_usr, os.path.join(".", "Users.csv"))
+        dataImplement(net, os.path.join(".", "Users.csv"))
+        os.remove(os.path.join(".", "Users.csv"))
         fileUsers = os.path.splitext(HTMLpath)[0] + '_U.html'
         net_usr.show(fileUsers)
         print(fileUsers + " created")
     if cpt:
-        dataImplement(net_cpt, os.path.join(".","Computers.csv"))
-        dataImplement(net, os.path.join(".","Computers.csv"))
-        os.remove(os.path.join(".","Computers.csv"))
+        dataImplement(net_cpt, os.path.join(".", "Computers.csv"))
+        dataImplement(net, os.path.join(".", "Computers.csv"))
+        os.remove(os.path.join(".", "Computers.csv"))
         fileComputers = os.path.splitext(HTMLpath)[0] + '_C.html'
         net_cpt.show(fileComputers)
         print(fileComputers + " created")
@@ -264,23 +270,28 @@ if __name__ == "__main__":
         HELP()
 
     usr = cpt = False
-    HTMLpath = os.path.join(".","ADGraphMasterCarto.html")
+    HTMLpath = os.path.join(".", "ADGraphMasterCarto.html")
     globalListDisabled = {}
-    for arg in range(1,len(sys.argv)):
+    for arg in range(1, len(sys.argv)):
         if sys.argv[arg] == "-u":
-            try: exportToGraph(sys.argv[arg+1], "Users")
-            except IndexError: HELP()
+            try:
+                exportToGraph(sys.argv[arg+1], "Users")
+            except IndexError:
+                HELP()
             usr = True
         elif sys.argv[arg] == "-c":
-            try: exportToGraph(sys.argv[arg+1], "Computers")
-            except: HELP()
+            try:
+                exportToGraph(sys.argv[arg+1], "Computers")
+            except:
+                HELP()
             cpt = True
         elif sys.argv[arg] == "-n":
             try:
                 HTMLpath = str(sys.argv[arg+1])
-                if HTMLpath[0:1] != os.path.join(".",HTMLpath) :
-                    HTMLpath = os.path.join(".",HTMLpath)
-            except: HELP()
+                if HTMLpath[0:1] != os.path.join(".", HTMLpath):
+                    HTMLpath = os.path.join(".", HTMLpath)
+            except:
+                HELP()
 
         elif sys.argv[arg] == "-h":
             HELP()
