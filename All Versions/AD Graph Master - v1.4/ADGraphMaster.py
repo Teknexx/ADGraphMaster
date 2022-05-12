@@ -12,6 +12,34 @@ import sys
 import os
 
 
+def HELP():
+    """
+    Help file
+    """
+
+    print("""
+    
+       _   ___   ___               _    __  __         _           
+      /_\ |   \ / __|_ _ __ _ _ __| |_ |  \/  |__ _ __| |_ ___ _ _ 
+     / _ \| |) | (_ | '_/ _` | '_ \ ' \| |\/| / _` (_-<  _/ -_) '_|
+    /_/ \_\___/ \___|_| \__,_| .__/_||_|_|  |_\__,_/__/\__\___|_|  
+                             |_|                                     v1.4
+    arguments:  
+      -u : users file (from AD Audit Master)
+      -c : computers file (from AD Audit Master)
+      -b : enable physics buttons
+      -n : name or path of the output file (default : ADGraphMasterCarto.html)
+      -f : find a particular CN
+
+    examples :
+      python3 ADGraphMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -n Carto/CartoExample.html
+      ./ADGraphMaster.py -u DC=domain-Users.csv -b -n HTMLUsers
+      py ADGraphMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'
+      
+    """)
+    exit()
+    
+
 def exportToGraph(filename, filetype):
     """
     Transform a export AD file into a restructured file
@@ -191,25 +219,7 @@ def rechercheCN(net, cn, color):
             break
     else:
         print("No CN found")
-
-
-def HELP():
-    """
-    Help file
-    """
-    print("   _   ___   ___               _    __  __         _           ")
-    print("  /_\ |   \ / __|_ _ __ _ _ __| |_ |  \/  |__ _ __| |_ ___ _ _ ")
-    print(" / _ \| |) | (_ | '_/ _` | '_ \ ' \| |\/| / _` (_-<  _/ -_) '_|")
-    print("/_/ \_\___/ \___|_| \__,_| .__/_||_|_|  |_\__,_/__/\__\___|_|  ")
-    print("                         |_|                                     v1.4")
-    print("Arguments:\n  -u : users file (from AD Audit Master)\n  -c : computers file (from AD Audit Master)\n  -b : "
-          "enable physics buttons\n  -n : name or path of the output file (default : ADGraphMasterCarto.html)\n  -f : "
-          "find a particular CN\n")
-    print("examples :\n  python3 ADGraphMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -n Carto/CartoExample.html")
-    print("  ./ADGraphMaster.py -u DC=domain-Users.csv -b -n HTMLUsers")
-    print("  py ADGraphMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'\n")
-    exit()
-
+        
 
 def cartoCreation(usr, cpt, HTMLpath):
     """
