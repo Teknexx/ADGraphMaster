@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: latin1 -*-
 
-__author__ = "Florian TURMEL"
-__contact__ = "turmel.florian@laposte.net"
-__version__ = "1.4"
-
 from pyvis.network import Network
 import pandas as pd
 import numpy
