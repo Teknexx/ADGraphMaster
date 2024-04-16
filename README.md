@@ -23,12 +23,12 @@ PS> .\Get-Data.ps1
 This can be done in remote. 
 
 ```
-   _   ___   ___               _    __  __         _
-  /_\ |   \ / __|_ _ __ _ _ __| |_ |  \/  |__ _ __| |_ ___ _ _
+   _   ___   ___               _    __  __         _           
+  /_\ |   \ / __|_ _ __ _ _ __| |_ |  \/  |__ _ __| |_ ___ _ _ 
  / _ \| |) | (_ | '_/ _` | '_ \ ' \| |\/| / _` (_-<  _/ -_) '_|
-/_/ \_\___/ \___|_| \__,_| .__/_||_|_|  |_\__,_/__/\__\___|_|
+/_/ \_\___/ \___|_| \__,_| .__/_||_|_|  |_\__,_/__/\__\___|_|  
                          |_|                                     v1.5
-Arguments:
+arguments:  
   -u : users file (from AD Audit Master)
   -c : computers file (from AD Audit Master)
   -b : enable physics buttons
@@ -36,8 +36,8 @@ Arguments:
   -f : find a particular CN
 
 examples :
-  python3 ADGraphMaster.py -c DC=domain-Computers.csv -u DC=domain-Users.csv -n Carto/CartoExample.html
-  ./ADGraphMaster.py -u DC=domain-Users.csv -b -n HTMLUsers
-  py ADGraphMaster.py -u DC=domain-Users.csv -f 'Jean MICHEL'
+  python3 ADGraphMaster.py -c examples/DC=teknex,DC=ex-Computers.csv -u examples/DC=teknex,DC=ex-Users.csv -n examples/Carto/CartoExample.html
+  ./ADGraphMaster.py -u examples/DC=teknex,DC=ex-Users.csv -b -n HTMLUsers
+  py ADGraphMaster.py -u examples/DC=teknex,DC=ex-Users.csv -f 'Benny Beak'
 ```
 

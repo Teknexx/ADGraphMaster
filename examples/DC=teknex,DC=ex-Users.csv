@@ -1,0 +1,60 @@
+﻿CN|distinguishedName|Enabled
+Administrator|CN=Administrator,OU=Admin-Users,OU=Administration,DC=teknex,DC=ex|True
+Guest|CN=Guest,OU=Users,DC=teknex,DC=ex|True
+MickeyMouse-adm|CN=MickeyMouse-adm,OU=Admin-Users,OU=Administration,DC=teknex,DC=ex|True
+DonaldDuck-adm|CN=DonaldDuck-adm,OU=Admin-Users,OU=Administration,DC=teknex,DC=ex|True
+MinnieMouse-adm|CN=MinnieMouse-adm,OU=Admin-Users,OU=Administration,DC=teknex,DC=ex|True
+Mickey Mouse|CN=Mickey Mouse,OU=Users,DC=teknex,DC=ex|True
+Donald Duck|CN=Donald Duck,OU=Users,DC=teknex,DC=ex|True
+Minnie Mouse|CN=Minnie Mouse,OU=Users,DC=teknex,DC=ex|True
+Tommy Wrench|CN=Tommy Wrench,OU=Users,DC=teknex,DC=ex|True
+Jimmy Ducky|CN=Jimmy Ducky,OU=Users,DC=teknex,DC=ex|True
+Jenny Mouse|CN=Jenny Mouse,OU=Users,DC=teknex,DC=ex|True
+Frankie Handy|CN=Frankie Handy,OU=Users,DC=teknex,DC=ex|True
+Billy Mallard|CN=Billy Mallard,OU=Users,DC=teknex,DC=ex|False
+Susie Vermin|CN=Susie Vermin,OU=Users,DC=teknex,DC=ex|True
+Timmy Gear|CN=Timmy Gear,OU=Users,DC=teknex,DC=ex|True
+Danny Quack|CN=Danny Quack,OU=Users,DC=teknex,DC=ex|True
+Penny Cheese|CN=Penny Cheese,OU=Users,DC=teknex,DC=ex|True
+Mikey Toolman|CN=Mikey Toolman,OU=Users,DC=teknex,DC=ex|True
+Ricky Duckworth|CN=Ricky Duckworth,OU=Users,DC=teknex,DC=ex|False
+Cindy Ratner|CN=Cindy Ratner,OU=Users,DC=teknex,DC=ex|False
+Tommy Nuts|CN=Tommy Nuts,OU=Users,DC=teknex,DC=ex|True
+Johnny Puddle|CN=Johnny Puddle,OU=Users,DC=teknex,DC=ex|True
+Mickey Spanner|CN=Mickey Spanner,OU=Users,DC=teknex,DC=ex|True
+Benny Woodchuck|CN=Benny Woodchuck,OU=Users,DC=teknex,DC=ex|True
+Sally Furry|CN=Sally Furry,OU=Users,DC=teknex,DC=ex|True
+Larry Squeak|CN=Larry Squeak,OU=Users,DC=teknex,DC=ex|True
+Katie Bolt|CN=Katie Bolt,OU=Users,DC=teknex,DC=ex|True
+Joey Duckworth|CN=Joey Duckworth,OU=Users,DC=teknex,DC=ex|True
+Jenny Whiskers|CN=Jenny Whiskers,OU=Users,DC=teknex,DC=ex|True
+Billy Feathers|CN=Billy Feathers,OU=Users,DC=teknex,DC=ex|True
+Susie Critter|CN=Susie Critter,OU=Users,DC=teknex,DC=ex|True
+Timmy Spanner|CN=Timmy Spanner,OU=Users,DC=teknex,DC=ex|True
+Danny Beak|CN=Danny Beak,OU=Users,DC=teknex,DC=ex|True
+Penny Nutmeg|CN=Penny Nutmeg,OU=Users,DC=teknex,DC=ex|True
+Mikey Handy|CN=Mikey Handy,OU=Users,DC=teknex,DC=ex|True
+Ricky Vermin|CN=Ricky Vermin,OU=Users,DC=teknex,DC=ex|False
+Cindy Rodent|CN=Cindy Rodent,OU=Users,DC=teknex,DC=ex|True
+Tommy Quack|CN=Tommy Quack,OU=Users,DC=teknex,DC=ex|True
+Johnny Wrench|CN=Johnny Wrench,OU=Users,DC=teknex,DC=ex|False
+Mickey Duckerson|CN=Mickey Duckerson,OU=Users,DC=teknex,DC=ex|True
+Benny Toolman|CN=Benny Toolman,OU=Users,DC=teknex,DC=ex|True
+Sally Cheese|CN=Sally Cheese,OU=Users,DC=teknex,DC=ex|True
+Larry Mallard|CN=Larry Mallard,OU=Users,DC=teknex,DC=ex|True
+Katie Vermin|CN=Katie Vermin,OU=Users,DC=teknex,DC=ex|True
+Joey Nuts|CN=Joey Nuts,OU=Users,DC=teknex,DC=ex|True
+Jenny Handy|CN=Jenny Handy,OU=Users,DC=teknex,DC=ex|True
+Billy Quack|CN=Billy Quack,OU=Users,DC=teknex,DC=ex|False
+Susie Duckworth|CN=Susie Duckworth,OU=Users,DC=teknex,DC=ex|True
+Timmy Ratner|CN=Timmy Ratner,OU=Users,DC=teknex,DC=ex|False
+Danny Woodchuck|CN=Danny Woodchuck,OU=Users,DC=teknex,DC=ex|True
+Penny Furry|CN=Penny Furry,OU=Users,DC=teknex,DC=ex|True
+Mikey Squeak|CN=Mikey Squeak,OU=Users,DC=teknex,DC=ex|True
+Ricky Bolt|CN=Ricky Bolt,OU=Users,DC=teknex,DC=ex|True
+Cindy Whiskers|CN=Cindy Whiskers,OU=Users,DC=teknex,DC=ex|True
+Tommy Feathers|CN=Tommy Feathers,OU=Users,DC=teknex,DC=ex|True
+Johnny Critter|CN=Johnny Critter,OU=Users,DC=teknex,DC=ex|True
+Mickey Spanner|CN=Mickey Spanner,OU=Users,DC=teknex,DC=ex|True
+Benny Beak|CN=Benny Beak,OU=Users,DC=teknex,DC=ex|True
+Sally Nutmeg|CN=Sally Nutmeg,OU=Users,DC=teknex,DC=ex|True
