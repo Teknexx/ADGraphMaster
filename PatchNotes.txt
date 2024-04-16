@@ -4,8 +4,7 @@ v1.1 : 1. First release of the tool
 
 v1.2 : 1. Changes in the -n argument, users can now use a path
        2. Functions documentations has been written
-       3. Added the -f argument. Now users can find a user by typing a cn after the argument
-       4. Minors bugs fixes
+       3. Minors bugs fixes
 	   
 v1.3 : 1. Added a different color for Disabled Users
        2. Added a pip requirements file

@@ -23,6 +23,7 @@ PS> .\Get-Data.ps1
 This can be done in remote. 
 
 ```
+    
    _   ___   ___               _    __  __         _           
   /_\ |   \ / __|_ _ __ _ _ __| |_ |  \/  |__ _ __| |_ ___ _ _ 
  / _ \| |) | (_ | '_/ _` | '_ \ ' \| |\/| / _` (_-<  _/ -_) '_|
@@ -33,11 +34,8 @@ arguments:
   -c : computers file (from AD Audit Master)
   -b : enable physics buttons
   -n : name or path of the output file (default : ADGraphMasterCarto.html)
-  -f : find a particular CN
 
-examples :
-  python3 ADGraphMaster.py -c examples/DC=teknex,DC=ex-Computers.csv -u examples/DC=teknex,DC=ex-Users.csv -n examples/Carto/CartoExample.html
-  ./ADGraphMaster.py -u examples/DC=teknex,DC=ex-Users.csv -b -n HTMLUsers
-  py ADGraphMaster.py -u examples/DC=teknex,DC=ex-Users.csv -f 'Benny Beak'
+example :
+  python3 ADGraphMaster.py -c examples/DC=teknex,DC=ex-Computers.csv -u examples/DC=teknex,DC=ex-Users.csv -b -n examples/Carto/CartoExample.html
 ```
 

@@ -25,13 +25,10 @@ arguments:
   -c : computers file (from AD Audit Master)
   -b : enable physics buttons
   -n : name or path of the output file (default : ADGraphMasterCarto.html)
-  -f : find a particular CN
 
-examples :
-  python3 ADGraphMaster.py -c examples/DC=teknex,DC=ex-Computers.csv -u examples/DC=teknex,DC=ex-Users.csv -n examples/Carto/CartoExample.html
-  ./ADGraphMaster.py -u examples/DC=teknex,DC=ex-Users.csv -b -n HTMLUsers
-  py ADGraphMaster.py -u examples/DC=teknex,DC=ex-Users.csv -f 'Benny Beak'
-  
+example :
+  python3 ADGraphMaster.py -c examples/DC=teknex,DC=ex-Computers.csv -u examples/DC=teknex,DC=ex-Users.csv -b -n examples/Carto/CartoExample.html
+
     """)
     exit()
     
@@ -193,25 +190,7 @@ def dataImplement(net, file):
 
             titleFromOriginSave = titleFromOrigin
 
-
-def rechercheCN(net, CN, color):
-    """
-    Search a node id and change his color
-    :param net: (Network) network to use
-    :param CN: (str) common name to search
-    :param color: (str) color of the CN found
-    """
-    listnodes = net.get_nodes()
-    if CN[0:3] != "CN=":
-        CN = "CN=" + CN
-    for node in listnodes:
-        if CN in node:
-            net.get_node(node)['color'] = color
-            break
-    else:
-        print("No CN found")
-        
-        
+       
 def fontSizeModification(filePath):
     """
     Modify the font size to a bigger one
@@ -248,14 +227,6 @@ def cartoCreation(usr, cpt, HTMLpath):
         net_usr.show_buttons(filter_=['physics'])
         net_cpt.show_buttons(filter_=['physics'])
 
-    if "-f" in sys.argv[1:]:
-        try:
-            rechercheCN(net, sys.argv[sys.argv.index("-f")+1], "white")
-            rechercheCN(net_usr, sys.argv[sys.argv.index("-f") + 1], "white")
-            rechercheCN(net_cpt, sys.argv[sys.argv.index("-f") + 1], "white")
-        except IndexError:
-            HELP()
-            
     if not os.path.exists(os.path.dirname(HTMLpath)):
         os.makedirs(os.path.dirname(HTMLpath))
         
