@@ -203,7 +203,30 @@ def fontSizeModification(filePath):
     
     with open(filePath, "w", encoding='utf-8') as file:
         file.write(data)
-        
+
+
+def addingLegend(filePath):
+    """
+    Adding a legend in the graph
+    :param filePath: (str) path of the file to tranform
+    """
+    legend = '<body><style>.overlay {position: fixed;right: 0;background-color: rgba(0, 0, 0, 0.8);z-index: 999;padding: 2vmin;box-sizing: border-box;margin-top: 1px; margin-right: 7px;}.color-box {width: 5vmin;height: 2.7vmin;border: 1px solid white;display: inline-block;vertical-align: middle;margin-right: 1vmin;margin-left: 4vmin;}.text {font-size: 2.3vmin;font-family: sans-serif;color: white;display: inline-block;vertical-align: middle;}.legend {color: white;font-size: 3vmin;font-family: sans-serif;font-weight: bold;text-decoration: underline;margin-top: 0px;}</style><div class="overlay"><table style="width: 100%;"><tr><td><p class="legend">Legend</p></td></tr>'
+    
+    if "_U.html" in filePath:
+        legend += '<tr><td><div class="color-box" style="background-color: #80B2FF;"></div><p class="text">Users Enabled</p></td><td><div class="color-box" style="background-color: #464F71;"></div><p class="text">Users Disabled</p></td></table></div>'
+    elif "_C.html" in filePath:
+        legend += '<tr><td><div class="color-box" style="background-color: #DE7B52;"></div><p class="text">Computers Enabled</p></td><td><div class="color-box" style="background-color: #9B5233;"></div><p class="text">Computers Disabled</p></td></table></div>'
+    else:
+        legend += '<tr><td><div class="color-box" style="background-color: #80B2FF;"></div><p class="text">Users Enabled</p></td><td><div class="color-box" style="background-color: #DE7B52;"></div><p class="text">Computers Enabled</p></td></tr><tr><td><div class="color-box" style="background-color: #464F71;"></div><p class="text">Users Disabled</p></td><td><div class="color-box" style="background-color: #9B5233;"></div><p class="text">Computers Disabled</p></td></tr></table></div>'
+    
+    with open(filePath, "r", encoding='utf-8') as file:
+        data = file.read()
+    
+    data = data.replace('<body>', legend)
+    
+    with open(filePath, "w", encoding='utf-8') as file:
+        file.write(data)
+
 
 def cartoCreation(usr, cpt, HTMLpath):
     """
@@ -237,6 +260,7 @@ def cartoCreation(usr, cpt, HTMLpath):
         fileUsers = os.path.splitext(HTMLpath)[0] + '_U.html'
         net_usr.show(fileUsers)
         fontSizeModification(fileUsers)
+        addingLegend(fileUsers)
         print(fileUsers + " created")
     if cpt:
         dataImplement(net_cpt, os.path.join(".", "Computers.csv"))
@@ -245,11 +269,13 @@ def cartoCreation(usr, cpt, HTMLpath):
         fileComputers = os.path.splitext(HTMLpath)[0] + '_C.html'
         net_cpt.show(fileComputers)
         fontSizeModification(fileComputers)
+        addingLegend(fileComputers)
         print(fileComputers + " created")
     if usr and cpt:
         fileCombined = os.path.splitext(HTMLpath)[0] + '_Full.html'
         net.show(fileCombined)
         fontSizeModification(fileCombined)
+        addingLegend(fileCombined)
         print(fileCombined + " created")
 
 

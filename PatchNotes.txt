@@ -15,3 +15,4 @@ v1.4 : 1. Modified the csv reading encoding type to latin1
 
 V1.5 : 1. Changing encoding from latin1 to utf-8
        2. Nodes font size enlargement
+	   3. Adding legend
