@@ -77,7 +77,7 @@ def readandwritelines(filestr, type):
     :param filestr: (str) string of the file to write
     :param type: (str) name of the file to create and write in
     """
-    ans = "csv1,csv2,csv3,csv4,csv5,csv6,csv7,csv8,csv9,csv10\n"
+    ans = "csv1,csv2,csv3,csv4,csv5,csv6,csv7,csv8,csv9,csv10,csv11,csv12,csv13,csv14,csv15,csv16,csv17,csv18,csv19,csv20\n"
     file = filestr.split('\n')
     for line in file:
         line = line.strip().split(',')
@@ -169,8 +169,18 @@ def dataImplement(net, file):
     csv8 = data['csv8']
     csv9 = data['csv9']
     csv10 = data['csv10']
+    csv11 = data['csv11']
+    csv12 = data['csv12']
+    csv13 = data['csv13']
+    csv14 = data['csv14']
+    csv15 = data['csv15']
+    csv16 = data['csv16']
+    csv17 = data['csv17']
+    csv18 = data['csv18']
+    csv19 = data['csv19']
+    csv20 = data['csv20'] 
 
-    edge_data = zip(csv1, csv2, csv3, csv4, csv5, csv6, csv7, csv8, csv9, csv10)
+    edge_data = zip(csv1,csv2,csv3,csv4,csv5,csv6,csv7,csv8,csv9,csv10,csv11,csv12,csv13,csv14,csv15,csv16,csv17,csv18,csv19,csv20)
     listBranches = ['']
     for e in edge_data:
         titleFromOrigin = str(e[0])
