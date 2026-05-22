@@ -8,8 +8,7 @@ AD Graph Master is an Active Directory mapping tool. It allows the creation of a
 ```
 $ git clone https://github.com/Teknexx/ADGraphMaster.git
 $ cd ADGraphMaster
-$ pip install -r requirements.txt
-$ cd src
+$ pip install pandas numpy pyvis
 ```
 
 ## Usage
@@ -20,8 +19,7 @@ PS> .\Get-Data.ps1
 ```
 
 ### Making cartography
-This can be done in remote. 
-
+On a python environement :
 ```
     
    _   ___   ___               _    __  __         _           
@@ -38,4 +36,3 @@ arguments:
 example :
   python3 ADGraphMaster.py -c examples/DC=teknex,DC=ex-Computers.csv -u examples/DC=teknex,DC=ex-Users.csv -b -n examples/Carto/CartoExample.html
 ```
-
