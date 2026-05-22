@@ -268,7 +268,7 @@ def cartoCreation(usr, cpt, HTMLpath):
         dataImplement(net, os.path.join(".", "Users.csv"))
         os.remove(os.path.join(".", "Users.csv"))
         fileUsers = os.path.splitext(HTMLpath)[0] + '_U.html'
-        net_usr.show(fileUsers)
+        net_usr.write_html(fileUsers)
         fontSizeModification(fileUsers)
         addingLegend(fileUsers)
         print(fileUsers + " created")
@@ -277,13 +277,13 @@ def cartoCreation(usr, cpt, HTMLpath):
         dataImplement(net, os.path.join(".", "Computers.csv"))
         os.remove(os.path.join(".", "Computers.csv"))
         fileComputers = os.path.splitext(HTMLpath)[0] + '_C.html'
-        net_cpt.show(fileComputers)
+        net_cpt.write_html(fileComputers)
         fontSizeModification(fileComputers)
         addingLegend(fileComputers)
         print(fileComputers + " created")
     if usr and cpt:
         fileCombined = os.path.splitext(HTMLpath)[0] + '_Full.html'
-        net.show(fileCombined)
+        net.write_html(fileCombined)
         fontSizeModification(fileCombined)
         addingLegend(fileCombined)
         print(fileCombined + " created")
